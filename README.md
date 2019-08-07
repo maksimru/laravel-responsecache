@@ -230,6 +230,11 @@ interface CacheProfile
     public function enabled(Request $request): bool;
 
     /*
+     * Determine if the given request should be restored.
+     */
+    public function shouldRestoreRequest(Request $request): bool;
+
+    /*
      * Determine if the given request should be cached.
      */
     public function shouldCacheRequest(Request $request): bool;

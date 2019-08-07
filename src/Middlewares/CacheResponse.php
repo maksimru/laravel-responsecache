@@ -27,7 +27,7 @@ class CacheResponse
         $tags = $this->getTags($args);
 
         if ($this->responseCache->enabled($request)) {
-            if ($this->responseCache->hasBeenCached($request, $tags)) {
+            if ($this->responseCache->shouldBeRestored($request) && $this->responseCache->hasBeenCached($request, $tags)) {
                 event(new ResponseCacheHit($request));
 
                 $response = $this->responseCache->getCachedResponseFor($request, $tags);

@@ -14,6 +14,11 @@ abstract class BaseCacheProfile implements CacheProfile
         return config('responsecache.enabled');
     }
 
+    public function shouldRestoreRequest(Request $request): bool
+    {
+        return true;
+    }
+
     public function cacheRequestUntil(Request $request): DateTime
     {
         return Carbon::now()->addSeconds(

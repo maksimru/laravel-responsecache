@@ -10,6 +10,8 @@ interface CacheProfile
 {
     public function enabled(Request $request): bool;
 
+    public function shouldRestoreRequest(Request $request): bool;
+
     public function shouldCacheRequest(Request $request): bool;
 
     public function shouldCacheResponse(Response $response): bool;
